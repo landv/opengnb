@@ -1,6 +1,6 @@
-CFLAGS=-O2 -I./src -I/usr/x86_64-w64-mingw32/include -I./libs -I./libs/wintun -I./libs/miniupnpc -I./libs/libnatpmp -DMINIUPNP_STATICLIB -DNATPMP_STATICLIB
-CLI_LDFLAGS=-s -static -L/usr/x86_64-w64-mingw32/lib/ -lwsock32 -lws2_32 -liphlpapi -lpthread -lmingwex
-GNB_ES_LDFLAGS=-s -static -L/usr/x86_64-w64-mingw32/lib/ -lwsock32 -lws2_32 -liphlpapi -lpthread -lmingwex
+CFLAGS=-O2 -I./src -I/usr/x86_64-w64-mingw32/include -I./libs -I./libs/wintun -I./libs/miniupnpc -I./libs/libnatpmp -DMINIUPNP_STATICLIB -DNATPMP_STATICLIB -fstack-protector
+CLI_LDFLAGS=-s -static -L/usr/x86_64-w64-mingw32/lib/ -lwsock32 -lws2_32 -liphlpapi -lpthread -lmingwex -fstack-protector
+GNB_ES_LDFLAGS=-s -static -L/usr/x86_64-w64-mingw32/lib/ -lwsock32 -lws2_32 -liphlpapi -lpthread -lmingwex -fstack-protector
 
 
 GNB_CRYPTO=gnb_crypto.exe
@@ -8,6 +8,8 @@ GNB_CTL=gnb_ctl.exe
 GNB_ES=gnb_es.exe
 GNB_CLI=gnb.exe
 
+WINDRES = /usr/bin/x86_64-w64-mingw32-windres
+CC = /usr/bin/x86_64-w64-mingw32-gcc
 
 include Makefile.inc
 
